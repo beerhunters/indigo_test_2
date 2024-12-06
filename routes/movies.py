@@ -1,22 +1,10 @@
-# from fastapi import APIRouter, Depends
-# from sqlalchemy.orm import Session
-# from crud import create_movie
-# from schemas import MovieCreate, MovieResponse
-# from database import get_db
-#
-# router = APIRouter()
-#
-#
-# @router.post("/", response_model=MovieResponse)
-# def create_new_movie(movie: MovieCreate, db: Session = Depends(get_db)):
-#     return create_movie(db=db, movie=movie)
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from schemas import MovieCreate, MovieUpdate, MovieResponse
-from crud import create_movie, update_movie, delete_movie, get_favorites_by_user
+from crud import create_movie, update_movie, delete_movie
 from database import get_db
 
-router = APIRouter(prefix="/movies", tags=["movies"])
+router = APIRouter()
 
 
 @router.post("/", response_model=MovieResponse)
